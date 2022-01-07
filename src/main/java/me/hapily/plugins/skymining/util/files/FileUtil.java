@@ -14,10 +14,8 @@ public class FileUtil {
             File file = new File(Bukkit.getPluginManager().getPlugin("SkyMining").getDataFolder() + File.separator + name);;
             if(file.createNewFile()) {
                 Util.log("File '" + name + "' not found! Creating it...");
-                return file;
-            } else {
-                return file;
             }
+            return file;
         } catch (IOException e) {
             Util.log("An error occurred.");
             e.printStackTrace();

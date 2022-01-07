@@ -4,6 +4,8 @@ import me.hapily.plugins.skymining.util.Util;
 import me.hapily.plugins.skymining.util.files.FileUtil;
 import org.bukkit.Bukkit;
 import org.bukkit.command.CommandMap;
+import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.io.File;
@@ -15,6 +17,8 @@ public final class SkyMining extends JavaPlugin {
     public static SkyMining getInstance(){
         return instance;
     }
+    private File playedFile = FileUtil.getFile("playersplayed.yml");
+    private FileConfiguration playedConfig = YamlConfiguration.loadConfiguration(playedFile);
 
     @Override
     public void onEnable() {
@@ -33,12 +37,20 @@ public final class SkyMining extends JavaPlugin {
         if(!f.exists())
             Util.log("Plugin folder not found, creating one!");
             f.mkdir();
-        FileUtil.getFile("playerdata.yml");
+
         Util.log("Successfully enabled!");
     }
 
     @Override
     public void onDisable() {
         Util.log("Successfully disabled.");
+    }
+
+    public FileConfiguration getPlayedConfig(){
+        return playedConfig;
+    }
+
+    public File getPlayedFile(){
+        return playedFile;
     }
 }
