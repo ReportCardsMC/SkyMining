@@ -55,6 +55,16 @@ public class Movement {
                 return entity.getFacing().getDirection().setY(0);
             case HORIZONTALLY_BACKWARDS:
                 return entity.getFacing().getOppositeFace().getDirection().setY(0);
+            case RIGHT:
+                return VectorMath.setYaw(entity.getFacing().getDirection(), VectorMath.getYaw(entity.getFacing().getDirection()) + 90);
+            case LEFT:
+                return VectorMath.setYaw(entity.getFacing().getDirection(), VectorMath.getYaw(entity.getFacing().getDirection()) - 90);
+            default:
+                return null;
+        }
+    }
+    public static Vector getVector(Direction direction){
+        switch(direction){
             case UPWARDS:
                 return BlockFace.UP.getDirection();
             case DOWNWARDS:
@@ -75,10 +85,6 @@ public class Movement {
                 return BlockFace.SOUTH_EAST.getDirection();
             case SOUTH_WEST:
                 return BlockFace.SOUTH_WEST.getDirection();
-            case RIGHT:
-                return VectorMath.setYaw(entity.getFacing().getDirection(), VectorMath.getYaw(entity.getFacing().getDirection()) + 90);
-            case LEFT:
-                return VectorMath.setYaw(entity.getFacing().getDirection(), VectorMath.getYaw(entity.getFacing().getDirection()) - 90);
             default:
                 return null;
         }
