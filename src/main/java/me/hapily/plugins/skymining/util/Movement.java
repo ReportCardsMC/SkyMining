@@ -6,7 +6,7 @@ import org.bukkit.util.Vector;
 
 public class Movement {
 
-    enum Direction{
+    public enum Direction{
         FORWARDS,
         BACKWARDS,
         HORIZONTALLY_FORWARDS,
@@ -48,17 +48,17 @@ public class Movement {
     public static Vector getVector(Entity entity, Direction direction){
         switch(direction){
             case FORWARDS:
-                return entity.getFacing().getDirection();
+                return entity.getLocation().getDirection();
             case BACKWARDS:
-                return entity.getFacing().getOppositeFace().getDirection();
+                return entity.getLocation().getDirection().multiply(new Vector(-1,-1,-1));
             case HORIZONTALLY_FORWARDS:
-                return entity.getFacing().getDirection().setY(0);
+                return entity.getLocation().getDirection().setY(0);
             case HORIZONTALLY_BACKWARDS:
-                return entity.getFacing().getOppositeFace().getDirection().setY(0);
+                return entity.getLocation().getDirection().multiply(new Vector(-1,-1,-1)).setY(0);
             case RIGHT:
-                return VectorMath.setYaw(entity.getFacing().getDirection(), VectorMath.getYaw(entity.getFacing().getDirection()) + 90);
+                return VectorMath.setYaw(entity.getLocation().getDirection(), VectorMath.getYaw(entity.getLocation().getDirection()) + 90);
             case LEFT:
-                return VectorMath.setYaw(entity.getFacing().getDirection(), VectorMath.getYaw(entity.getFacing().getDirection()) - 90);
+                return VectorMath.setYaw(entity.getLocation().getDirection(), VectorMath.getYaw(entity.getLocation().getDirection()) - 90);
             default:
                 return null;
         }
