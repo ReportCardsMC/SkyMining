@@ -1,0 +1,7 @@
+name: SkyMining
+version: '${project.version}'
+main: me.hapily.plugins.skymining.SkyMining
+api-version: 1.17
+authors: [hapily]
+description: The core for a skymining server
+website: placeholder
