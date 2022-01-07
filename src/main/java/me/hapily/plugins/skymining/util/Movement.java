@@ -1,5 +1,6 @@
 package me.hapily.plugins.skymining.util;
 
+import org.bukkit.Location;
 import org.bukkit.block.BlockFace;
 import org.bukkit.entity.Entity;
 import org.bukkit.util.Vector;
@@ -43,6 +44,13 @@ public class Movement {
     public static void pushEntity(Entity entity, Vector vector, Number speed, Boolean setVelocity){
         vector.normalize().multiply(speed.doubleValue());
         pushEntity(entity, vector, setVelocity);
+    }
+
+    public static Location getLocation(Location location, Vector vector, Number blocksAway){
+        vector.normalize();
+        vector.multiply(blocksAway.doubleValue());
+        location.add(vector);
+        return location;
     }
 
     public static Vector getVector(Entity entity, Direction direction){
