@@ -29,12 +29,7 @@ public class Movement {
 
     public static void pushEntity(Entity entity, Vector vector, Number speed, Boolean setVelocity){
         vector.normalize().multiply(speed.doubleValue());
-        if(!setVelocity){
-            entity.getVelocity().add(vector);
-        }
-        else{
-            entity.setVelocity(vector);
-        }
+        pushEntity(entity, vector, setVelocity);
     }
 
     public static Vector getVector(Entity entity, Direction direction){
