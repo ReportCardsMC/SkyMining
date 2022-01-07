@@ -11,7 +11,7 @@ public class FileUtil {
 
     public static File getFile(String name){
         try {
-            File file = new File(Bukkit.getPluginManager().getPlugin("SkyMining").getDataFolder() + File.separator + name);;
+            File file = new File(Bukkit.getPluginManager().getPlugin(SkyMining.getInstance().getName()).getDataFolder() + File.separator + name);;
             if(file.createNewFile()) {
                 Util.log("File '" + name + "' not found! Creating it...");
             }
