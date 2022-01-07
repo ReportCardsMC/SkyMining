@@ -1,5 +1,6 @@
 package me.hapily.plugins.skymining.util;
 
+import org.bukkit.block.BlockFace;
 import org.bukkit.entity.Entity;
 import org.bukkit.util.Vector;
 
@@ -9,7 +10,19 @@ public class Movement {
         FORWARDS,
         BACKWARDS,
         HORIZONTALLY_FORWARDS,
-        HORIZONTALLY_BACKWARDS
+        HORIZONTALLY_BACKWARDS,
+        UPWARDS,
+        DOWNWARDS,
+        NORTH,
+        SOUTH,
+        EAST,
+        WEST,
+        NORTH_EAST,
+        NORTH_WEST,
+        SOUTH_EAST,
+        SOUTH_WEST,
+        RIGHT,
+        LEFT
 
     }
 
@@ -42,6 +55,30 @@ public class Movement {
                 return entity.getFacing().getDirection().setY(0);
             case HORIZONTALLY_BACKWARDS:
                 return entity.getFacing().getOppositeFace().getDirection().setY(0);
+            case UPWARDS:
+                return BlockFace.UP.getDirection();
+            case DOWNWARDS:
+                return BlockFace.DOWN.getDirection();
+            case NORTH:
+                return BlockFace.NORTH.getDirection();
+            case EAST:
+                return BlockFace.EAST.getDirection();
+            case SOUTH:
+                return BlockFace.SOUTH.getDirection();
+            case WEST:
+                return BlockFace.WEST.getDirection();
+            case NORTH_EAST:
+                return BlockFace.NORTH_EAST.getDirection();
+            case NORTH_WEST:
+                return BlockFace.NORTH_WEST.getDirection();
+            case SOUTH_EAST:
+                return BlockFace.SOUTH_EAST.getDirection();
+            case SOUTH_WEST:
+                return BlockFace.SOUTH_WEST.getDirection();
+            case RIGHT:
+                return VectorMath.setYaw(entity.getFacing().getDirection(), VectorMath.getYaw(entity.getFacing().getDirection()) + 90);
+            case LEFT:
+                return VectorMath.setYaw(entity.getFacing().getDirection(), VectorMath.getYaw(entity.getFacing().getDirection()) - 90);
             default:
                 return null;
         }
