@@ -1,6 +1,7 @@
 package me.hapily.plugins.skymining.events;
 
 import me.hapily.plugins.skymining.util.Selection;
+import org.bukkit.Location;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -21,6 +22,7 @@ public class ClickEvents implements Listener {
             else{
                 Selection.loc1.put(p, Objects.requireNonNull(event.getClickedBlock()).getLocation());
             }
+            selectionFeedback(p, event.getClickedBlock().getLocation());
         }
         if(event.getAction().isRightClick()){
             if(Selection.loc2.containsKey(p)){
@@ -29,7 +31,12 @@ public class ClickEvents implements Listener {
             else{
                 Selection.loc2.put(p, Objects.requireNonNull(event.getClickedBlock()).getLocation());
             }
+            selectionFeedback(p, event.getClickedBlock().getLocation());
         }
+    }
+
+    public void selectionFeedback(Player player, Location location){
+        player.sendMessage("§5Mines: §dFirst position set to (" + location.getBlockX() + ", " + location.getBlockY() + ", " + location.getBlockZ() + ").");
     }
 
 }
