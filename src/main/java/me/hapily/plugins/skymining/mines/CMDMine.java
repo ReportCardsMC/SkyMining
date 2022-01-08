@@ -92,7 +92,7 @@ public class CMDMine extends BukkitCommand {
                 createMSG() + "\n" +
                 deleteMSG() + "\n" +
                 resetMSG() + "\n" +
-                "§5/mine tool §f- §7Gives you the selection tool.\n");
+                "§5/mine tool §f- §7Gives you the selection tool.\n§5");
     }
 
     public String createMSG(){
