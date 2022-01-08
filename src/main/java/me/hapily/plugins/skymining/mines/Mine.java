@@ -52,6 +52,12 @@ public class Mine {
     public List<Block> getBlocks() {
         World w = Bukkit.getWorld(world);
         List <Block> array = new ArrayList<>();
+        int minX = (int) Math.min(x1, x2);
+        int maxX = (int) Math.max(x1, x2);
+        int minY = (int) Math.min(y1, y2);
+        int maxY = (int) Math.max(y1, y2);
+        int minZ = (int) Math.min(z1, z2);
+        int maxZ = (int) Math.max(z1, z2);
         for (int x3 = x1; x3 <= x2; x3++) {
             for (int y3 = y1; y3 <= y2; y3++) {
                 for (int z3 = z1; z3 <= z2; z3++) {
