@@ -1,5 +1,6 @@
 package me.hapily.plugins.skymining;
 
+import me.hapily.plugins.skymining.events.ClickEvents;
 import me.hapily.plugins.skymining.events.JoinEvent;
 import me.hapily.plugins.skymining.mines.CMDMine;
 import me.hapily.plugins.skymining.util.Util;
@@ -54,6 +55,7 @@ public final class SkyMining extends JavaPlugin {
             e.printStackTrace();
         }
         Bukkit.getPluginManager().registerEvents(new JoinEvent(), this);
+        Bukkit.getPluginManager().registerEvents(new ClickEvents(), this);
         Util.log("Successfully enabled!");
     }
 

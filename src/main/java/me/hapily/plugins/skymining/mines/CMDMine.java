@@ -2,6 +2,7 @@ package me.hapily.plugins.skymining.mines;
 
 import me.hapily.plugins.skymining.util.Selection;
 import me.hapily.plugins.skymining.util.Util;
+import net.kyori.adventure.text.Component;
 import org.bukkit.Material;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.defaults.BukkitCommand;
@@ -9,6 +10,7 @@ import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
 import org.jetbrains.annotations.NotNull;
 
 public class CMDMine extends BukkitCommand {
@@ -68,10 +70,12 @@ public class CMDMine extends BukkitCommand {
             }
         }
         else if(subcmd.equalsIgnoreCase("tool")){
-            ItemStack item = new ItemStack(Material.BEDROCK);
+            ItemStack item = new ItemStack(Material.GOLDEN_PICKAXE);
             item.addUnsafeEnchantment(Enchantment.ARROW_FIRE, 1);
             item.addItemFlags(ItemFlag.HIDE_ENCHANTS);
-            item.getItemMeta().setDisplayName("§5§lMines Selection Tool");
+            ItemMeta meta = item.getItemMeta();
+            meta.displayName(Component.text("§5§lMines Selection Tool"));
+            item.setItemMeta(meta);
             p.getInventory().addItem(item);
             p.sendMessage("§5Mines tool given! §dLeft click: select pos #1; Right click: select pos #2");
         }
