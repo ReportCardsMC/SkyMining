@@ -3,6 +3,7 @@ package me.hapily.plugins.skymining;
 import me.hapily.plugins.skymining.events.JoinEvent;
 import me.hapily.plugins.skymining.util.Util;
 import me.hapily.plugins.skymining.util.files.FileUtil;
+import me.hapily.plugins.skymining.util.files.ObjConfig;
 import org.bukkit.Bukkit;
 import org.bukkit.command.CommandMap;
 import org.bukkit.configuration.file.FileConfiguration;
@@ -39,6 +40,7 @@ public final class SkyMining extends JavaPlugin {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        ObjConfig.initialize();
         try {
             final Field bukkitCommandMap = Bukkit.getServer().getClass().getDeclaredField("commandMap");
 
