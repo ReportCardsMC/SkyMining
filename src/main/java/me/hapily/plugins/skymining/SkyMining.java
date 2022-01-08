@@ -1,6 +1,7 @@
 package me.hapily.plugins.skymining;
 
 import me.hapily.plugins.skymining.events.JoinEvent;
+import me.hapily.plugins.skymining.mines.CMDMine;
 import me.hapily.plugins.skymining.util.Util;
 import me.hapily.plugins.skymining.util.files.FileUtil;
 import me.hapily.plugins.skymining.util.files.ObjConfig;
@@ -46,6 +47,7 @@ public final class SkyMining extends JavaPlugin {
 
             bukkitCommandMap.setAccessible(true);
             CommandMap commandMap = (CommandMap) bukkitCommandMap.get(Bukkit.getServer());
+            commandMap.register("SkyMining", new CMDMine("mine"));
 
             Util.log("Commands registered");
         } catch(Exception e) {

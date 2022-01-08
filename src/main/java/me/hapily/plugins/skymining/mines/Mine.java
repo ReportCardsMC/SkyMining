@@ -33,6 +33,8 @@ public class Mine {
         this.z2 = (int) point2.getZ();
         this.world = point1.getWorld().getName();
         this.box = new BoundingBox(x1, y1, z1, x2, y2, z2);
+        // Adding the mine to the mines list
+        Mines.mines.put(name, this);
     }
 
     public ArrayList<Material> getMaterials(){
