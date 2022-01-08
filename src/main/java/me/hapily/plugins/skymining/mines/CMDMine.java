@@ -38,8 +38,8 @@ public class CMDMine extends BukkitCommand {
             else{
                 if(Mines.getMine(args[1]) == null){
                     if(Selection.loc1.containsKey(p) && Selection.loc2.containsKey(p)){
-                        new Mine(Util.itemsConvert(args[3]), args[2], Selection.loc1.get(p), Selection.loc2.get(p));
-                        p.sendMessage("§2§lSuccess! §aMine " + args[2] + " §ahas been created!");
+                        new Mine(Util.itemsConvert(args[2]), args[1], Selection.loc1.get(p), Selection.loc2.get(p));
+                        p.sendMessage("§2§lSuccess! §aMine " + args[1] + " §ahas been created!");
                     }
                     else{
                         p.sendMessage("§4ERROR: §cBoth of your selections are not set!");
@@ -62,7 +62,7 @@ public class CMDMine extends BukkitCommand {
             else{
                 if(Mines.getMine(args[1]) != null){
                     Mines.getMine(args[1]).reset();
-                    p.sendMessage("§2§lSuccess! §aMine " + args[2] + " §ahas been reset!");
+                    p.sendMessage("§2§lSuccess! §aMine " + args[1] + " §ahas been reset!");
                 }
                 else{
                     p.sendMessage(mineExists(false));
