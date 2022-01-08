@@ -58,9 +58,9 @@ public class Mine {
         int maxY = (int) Math.max(y1, y2);
         int minZ = (int) Math.min(z1, z2);
         int maxZ = (int) Math.max(z1, z2);
-        for (int x3 = x1; x3 <= x2; x3++) {
-            for (int y3 = y1; y3 <= y2; y3++) {
-                for (int z3 = z1; z3 <= z2; z3++) {
+        for (int x3 = minX; x3 <= maxX; x3++) {
+            for (int y3 = minY; y3 <= maxY; y3++) {
+                for (int z3 = minZ; z3 <= maxZ; z3++) {
                     assert w != null;
                     Block b = w.getBlockAt(x3, y3, z3);
                     array.add(b);
